@@ -339,6 +339,7 @@ public class kalkulator extends javax.swing.JFrame {
         temp = ko_jTextFieldDzialania.getText();
     }//GEN-LAST:event_ko_jButton0ActionPerformed
     int liczba1;
+    int liczba2;
     String znak = "";
     private void ko_jButtonPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonPlusActionPerformed
         znak = "+";
@@ -348,14 +349,20 @@ public class kalkulator extends javax.swing.JFrame {
 
     private void ko_jButtonMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonMinusActionPerformed
         znak = "-";
+        liczba1 = Integer.parseInt(temp);
+        temp ="";
     }//GEN-LAST:event_ko_jButtonMinusActionPerformed
 
     private void ko_jButtonMnozenieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonMnozenieActionPerformed
         znak ="*";
+        liczba1 = Integer.parseInt(temp);
+        temp ="";
     }//GEN-LAST:event_ko_jButtonMnozenieActionPerformed
 
     private void ko_jButtonDzielenieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonDzielenieActionPerformed
         znak ="/";
+        liczba1 = Integer.parseInt(temp);
+        temp ="";
     }//GEN-LAST:event_ko_jButtonDzielenieActionPerformed
 
     private void ko_jButtonPotegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonPotegaActionPerformed
@@ -367,16 +374,20 @@ public class kalkulator extends javax.swing.JFrame {
     }//GEN-LAST:event_ko_jButtonPierwiastekActionPerformed
 
     private void ko_jButtonUsunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonUsunActionPerformed
-        // TODO add your handling code here:
+        ko_jTextFieldDzialania.setText("");
+        temp = "";
     }//GEN-LAST:event_ko_jButtonUsunActionPerformed
 
     private void ko_jButtonWynikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonWynikActionPerformed
-        if(znak.equals(+)){
-            int wynik = liczba1 + liczba1;
+        liczba2 = Integer.parseInt(temp);
+        if(znak.equals("+")){
+            int wynik = liczba1 + liczba2;
             String tekst = String.valueOf(wynik);
             ko_jTextFieldDzialania.setText(tekst);
-        }else{
-            
+        }else if(znak.equals("-")){
+            int wynik = liczba1 - liczba2;
+            String tekst = String.valueOf(wynik);
+            ko_jTextFieldDzialania.setText(tekst);
         }
     }//GEN-LAST:event_ko_jButtonWynikActionPerformed
 
