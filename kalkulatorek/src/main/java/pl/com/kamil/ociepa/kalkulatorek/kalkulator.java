@@ -5,6 +5,8 @@
  */
 package pl.com.kamil.ociepa.kalkulatorek;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author a20ko
@@ -27,6 +29,7 @@ public class kalkulator extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu2 = new javax.swing.JMenu();
         ko_jPanelGlowny = new javax.swing.JPanel();
         ko_jTextFieldDzialania = new javax.swing.JTextField();
         ko_jButton1 = new javax.swing.JButton();
@@ -48,12 +51,19 @@ public class kalkulator extends javax.swing.JFrame {
         ko_jButtonMinus = new javax.swing.JButton();
         ko_jButtonWynik = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        ko_jMenuPlik = new javax.swing.JMenu();
+        ko_jMenuItemZamknij = new javax.swing.JMenuItem();
+        ko_jMenuItemOProgramie = new javax.swing.JMenuItem();
+
+        jMenu2.setText("jMenu2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Kalkulator by Kamil Ociepa");
+        setFocusable(false);
 
         ko_jPanelGlowny.setBackground(new java.awt.Color(0, 153, 153));
+
+        ko_jTextFieldDzialania.setEditable(false);
 
         ko_jButton1.setText("1");
         ko_jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -265,11 +275,25 @@ public class kalkulator extends javax.swing.JFrame {
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        ko_jMenuPlik.setText("Plik");
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        ko_jMenuItemZamknij.setText("Zamknij");
+        ko_jMenuItemZamknij.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ko_jMenuItemZamknijActionPerformed(evt);
+            }
+        });
+        ko_jMenuPlik.add(ko_jMenuItemZamknij);
+
+        ko_jMenuItemOProgramie.setText("O programie");
+        ko_jMenuItemOProgramie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ko_jMenuItemOProgramieActionPerformed(evt);
+            }
+        });
+        ko_jMenuPlik.add(ko_jMenuItemOProgramie);
+
+        jMenuBar1.add(ko_jMenuPlik);
 
         setJMenuBar(jMenuBar1);
 
@@ -351,6 +375,7 @@ public class kalkulator extends javax.swing.JFrame {
         znak = "-";
         liczba1 = Integer.parseInt(temp);
         temp ="";
+        
     }//GEN-LAST:event_ko_jButtonMinusActionPerformed
 
     private void ko_jButtonMnozenieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonMnozenieActionPerformed
@@ -366,11 +391,17 @@ public class kalkulator extends javax.swing.JFrame {
     }//GEN-LAST:event_ko_jButtonDzielenieActionPerformed
 
     private void ko_jButtonPotegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonPotegaActionPerformed
-        
+        znak ="potega";
+        liczba1 = Integer.parseInt(temp);
+        temp ="";
     }//GEN-LAST:event_ko_jButtonPotegaActionPerformed
 
     private void ko_jButtonPierwiastekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonPierwiastekActionPerformed
-        // TODO add your handling code here:
+        liczba1 = Integer.parseInt(temp);
+        double wynik = Math.sqrt(liczba1);
+        String tekst = String.valueOf(wynik);
+        ko_jTextFieldDzialania.setText("Pierwiastek z "+liczba1 +" = " + tekst);
+        temp = "";
     }//GEN-LAST:event_ko_jButtonPierwiastekActionPerformed
 
     private void ko_jButtonUsunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonUsunActionPerformed
@@ -383,13 +414,43 @@ public class kalkulator extends javax.swing.JFrame {
         if(znak.equals("+")){
             int wynik = liczba1 + liczba2;
             String tekst = String.valueOf(wynik);
-            ko_jTextFieldDzialania.setText(tekst);
+            ko_jTextFieldDzialania.setText(liczba1+ " + " + liczba2+" = " + tekst);
+            temp = "";
         }else if(znak.equals("-")){
             int wynik = liczba1 - liczba2;
             String tekst = String.valueOf(wynik);
-            ko_jTextFieldDzialania.setText(tekst);
+            ko_jTextFieldDzialania.setText(liczba1+ " - " + liczba2+" = " + tekst);
+            temp = "";
+        }else if(znak.equals("/")){
+            if(liczba2 == 0){
+                ko_jTextFieldDzialania.setText("Nie da sie dzielić przez 0");
+                temp = "";
+            }else{
+                int wynik = liczba1 / liczba2;
+                String tekst = String.valueOf(wynik);
+                ko_jTextFieldDzialania.setText(liczba1+ " / " + liczba2+" = " + tekst);
+                temp = "";
+            }
+        }else if(znak.equals("*")){
+            int wynik = liczba1 * liczba2;
+            String tekst = String.valueOf(wynik);
+            ko_jTextFieldDzialania.setText(liczba1+ " * " + liczba2+" = " + tekst);
+            temp = "";
+        }else if(znak.equals("potega")){
+            double wynik = Math.pow(liczba1,liczba2);
+            String tekst = String.valueOf(wynik);
+            ko_jTextFieldDzialania.setText(liczba1+ "^" + liczba2+" = " + tekst);
+            temp = "";
         }
     }//GEN-LAST:event_ko_jButtonWynikActionPerformed
+
+    private void ko_jMenuItemZamknijActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jMenuItemZamknijActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_ko_jMenuItemZamknijActionPerformed
+
+    private void ko_jMenuItemOProgramieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jMenuItemOProgramieActionPerformed
+         JOptionPane.showMessageDialog(null, "Kalkulator (jednodziałaniowy). IN DEVELOPMENT");
+    }//GEN-LAST:event_ko_jMenuItemOProgramieActionPerformed
 
     /**
      * @param args the command line arguments
@@ -427,7 +488,6 @@ public class kalkulator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JButton ko_jButton0;
@@ -448,6 +508,9 @@ public class kalkulator extends javax.swing.JFrame {
     private javax.swing.JButton ko_jButtonPotega;
     private javax.swing.JButton ko_jButtonUsun;
     private javax.swing.JButton ko_jButtonWynik;
+    private javax.swing.JMenuItem ko_jMenuItemOProgramie;
+    private javax.swing.JMenuItem ko_jMenuItemZamknij;
+    private javax.swing.JMenu ko_jMenuPlik;
     private javax.swing.JPanel ko_jPanelGlowny;
     private javax.swing.JTextField ko_jTextFieldDzialania;
     // End of variables declaration//GEN-END:variables
