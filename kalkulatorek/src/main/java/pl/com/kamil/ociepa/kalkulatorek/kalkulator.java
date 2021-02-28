@@ -60,11 +60,16 @@ public class kalkulator extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kalkulator by Kamil Ociepa");
         setFocusable(false);
+        setResizable(false);
 
-        ko_jPanelGlowny.setBackground(new java.awt.Color(0, 153, 153));
+        ko_jPanelGlowny.setBackground(new java.awt.Color(255, 204, 255));
 
         ko_jTextFieldDzialania.setEditable(false);
+        ko_jTextFieldDzialania.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jTextFieldDzialania.setForeground(new java.awt.Color(255, 153, 255));
 
+        ko_jButton1.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jButton1.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButton1.setText("1");
         ko_jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +77,8 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButton2.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jButton2.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButton2.setText("2");
         ko_jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +86,8 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButton3.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jButton3.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButton3.setText("3");
         ko_jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +95,8 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButton4.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jButton4.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButton4.setText("4");
         ko_jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +104,8 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButton5.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jButton5.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButton5.setText("5");
         ko_jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +113,8 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButton6.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jButton6.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButton6.setText("6");
         ko_jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +122,8 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButton7.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jButton7.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButton7.setText("7");
         ko_jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +131,8 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButton8.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jButton8.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButton8.setText("8");
         ko_jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +140,8 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButton9.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jButton9.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButton9.setText("9");
         ko_jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +149,8 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButton0.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jButton0.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButton0.setText("0");
         ko_jButton0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +158,9 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButtonPotega.setBackground(new java.awt.Color(255, 51, 255));
         ko_jButtonPotega.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        ko_jButtonPotega.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButtonPotega.setText("potęgowanie");
         ko_jButtonPotega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,6 +168,8 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButtonUsun.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jButtonUsun.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButtonUsun.setText("usuń");
         ko_jButtonUsun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +177,8 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButtonPlus.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jButtonPlus.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButtonPlus.setText("+");
         ko_jButtonPlus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,6 +186,8 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButtonDzielenie.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jButtonDzielenie.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButtonDzielenie.setText("/");
         ko_jButtonDzielenie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,7 +195,9 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButtonPierwiastek.setBackground(new java.awt.Color(255, 51, 255));
         ko_jButtonPierwiastek.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        ko_jButtonPierwiastek.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButtonPierwiastek.setText("pierwiastek");
         ko_jButtonPierwiastek.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,6 +205,8 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButtonMnozenie.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jButtonMnozenie.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButtonMnozenie.setText("*");
         ko_jButtonMnozenie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,6 +214,8 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButtonMinus.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jButtonMinus.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButtonMinus.setText("-");
         ko_jButtonMinus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,6 +223,8 @@ public class kalkulator extends javax.swing.JFrame {
             }
         });
 
+        ko_jButtonWynik.setBackground(new java.awt.Color(255, 51, 255));
+        ko_jButtonWynik.setForeground(new java.awt.Color(255, 153, 255));
         ko_jButtonWynik.setText("=");
         ko_jButtonWynik.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
