@@ -30,6 +30,7 @@ public class kalkulator extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         ko_jPanelGlowny = new javax.swing.JPanel();
         ko_jTextFieldDzialania = new javax.swing.JTextField();
         ko_jButton1 = new javax.swing.JButton();
@@ -54,8 +55,12 @@ public class kalkulator extends javax.swing.JFrame {
         ko_jMenuPlik = new javax.swing.JMenu();
         ko_jMenuItemZamknij = new javax.swing.JMenuItem();
         ko_jMenuItemOProgramie = new javax.swing.JMenuItem();
+        ko_jMenuTools = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         jMenu2.setText("jMenu2");
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kalkulator by Kamil Ociepa");
@@ -66,10 +71,10 @@ public class kalkulator extends javax.swing.JFrame {
 
         ko_jTextFieldDzialania.setEditable(false);
         ko_jTextFieldDzialania.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jTextFieldDzialania.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jTextFieldDzialania.setForeground(new java.awt.Color(51, 0, 51));
 
         ko_jButton1.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jButton1.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButton1.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButton1.setText("1");
         ko_jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +83,7 @@ public class kalkulator extends javax.swing.JFrame {
         });
 
         ko_jButton2.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jButton2.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButton2.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButton2.setText("2");
         ko_jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +92,7 @@ public class kalkulator extends javax.swing.JFrame {
         });
 
         ko_jButton3.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jButton3.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButton3.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButton3.setText("3");
         ko_jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +101,7 @@ public class kalkulator extends javax.swing.JFrame {
         });
 
         ko_jButton4.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jButton4.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButton4.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButton4.setText("4");
         ko_jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,7 +110,7 @@ public class kalkulator extends javax.swing.JFrame {
         });
 
         ko_jButton5.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jButton5.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButton5.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButton5.setText("5");
         ko_jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +119,7 @@ public class kalkulator extends javax.swing.JFrame {
         });
 
         ko_jButton6.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jButton6.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButton6.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButton6.setText("6");
         ko_jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +128,7 @@ public class kalkulator extends javax.swing.JFrame {
         });
 
         ko_jButton7.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jButton7.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButton7.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButton7.setText("7");
         ko_jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +137,7 @@ public class kalkulator extends javax.swing.JFrame {
         });
 
         ko_jButton8.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jButton8.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButton8.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButton8.setText("8");
         ko_jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +146,7 @@ public class kalkulator extends javax.swing.JFrame {
         });
 
         ko_jButton9.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jButton9.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButton9.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButton9.setText("9");
         ko_jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,7 +155,7 @@ public class kalkulator extends javax.swing.JFrame {
         });
 
         ko_jButton0.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jButton0.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButton0.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButton0.setText("0");
         ko_jButton0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +165,7 @@ public class kalkulator extends javax.swing.JFrame {
 
         ko_jButtonPotega.setBackground(new java.awt.Color(255, 51, 255));
         ko_jButtonPotega.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ko_jButtonPotega.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButtonPotega.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButtonPotega.setText("potęgowanie");
         ko_jButtonPotega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,7 +174,7 @@ public class kalkulator extends javax.swing.JFrame {
         });
 
         ko_jButtonUsun.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jButtonUsun.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButtonUsun.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButtonUsun.setText("usuń");
         ko_jButtonUsun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,7 +183,7 @@ public class kalkulator extends javax.swing.JFrame {
         });
 
         ko_jButtonPlus.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jButtonPlus.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButtonPlus.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButtonPlus.setText("+");
         ko_jButtonPlus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +192,7 @@ public class kalkulator extends javax.swing.JFrame {
         });
 
         ko_jButtonDzielenie.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jButtonDzielenie.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButtonDzielenie.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButtonDzielenie.setText("/");
         ko_jButtonDzielenie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,7 +202,7 @@ public class kalkulator extends javax.swing.JFrame {
 
         ko_jButtonPierwiastek.setBackground(new java.awt.Color(255, 51, 255));
         ko_jButtonPierwiastek.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        ko_jButtonPierwiastek.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButtonPierwiastek.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButtonPierwiastek.setText("pierwiastek");
         ko_jButtonPierwiastek.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,7 +211,7 @@ public class kalkulator extends javax.swing.JFrame {
         });
 
         ko_jButtonMnozenie.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jButtonMnozenie.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButtonMnozenie.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButtonMnozenie.setText("*");
         ko_jButtonMnozenie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,7 +220,7 @@ public class kalkulator extends javax.swing.JFrame {
         });
 
         ko_jButtonMinus.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jButtonMinus.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButtonMinus.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButtonMinus.setText("-");
         ko_jButtonMinus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,7 +229,7 @@ public class kalkulator extends javax.swing.JFrame {
         });
 
         ko_jButtonWynik.setBackground(new java.awt.Color(255, 51, 255));
-        ko_jButtonWynik.setForeground(new java.awt.Color(255, 153, 255));
+        ko_jButtonWynik.setForeground(new java.awt.Color(51, 0, 51));
         ko_jButtonWynik.setText("=");
         ko_jButtonWynik.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -333,6 +338,18 @@ public class kalkulator extends javax.swing.JFrame {
         ko_jMenuPlik.add(ko_jMenuItemOProgramie);
 
         jMenuBar1.add(ko_jMenuPlik);
+
+        ko_jMenuTools.setText("Narzędzia");
+
+        jMenuItem2.setText("jMenuItem2");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        ko_jMenuTools.add(jMenuItem2);
+
+        jMenuBar1.add(ko_jMenuTools);
 
         setJMenuBar(jMenuBar1);
 
@@ -491,6 +508,10 @@ public class kalkulator extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(null, "Kalkulator (jednodziałaniowy). IN DEVELOPMENT");
     }//GEN-LAST:event_ko_jMenuItemOProgramieActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -529,6 +550,8 @@ public class kalkulator extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JButton ko_jButton0;
     private javax.swing.JButton ko_jButton1;
     private javax.swing.JButton ko_jButton2;
@@ -550,6 +573,7 @@ public class kalkulator extends javax.swing.JFrame {
     private javax.swing.JMenuItem ko_jMenuItemOProgramie;
     private javax.swing.JMenuItem ko_jMenuItemZamknij;
     private javax.swing.JMenu ko_jMenuPlik;
+    private javax.swing.JMenu ko_jMenuTools;
     private javax.swing.JPanel ko_jPanelGlowny;
     private javax.swing.JTextField ko_jTextFieldDzialania;
     // End of variables declaration//GEN-END:variables
