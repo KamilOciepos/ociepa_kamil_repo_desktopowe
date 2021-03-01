@@ -7,6 +7,7 @@ package pl.com.kamil.ociepa.kalkulatorek;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import javax.swing.JOptionPane;
 
 /**
@@ -515,7 +516,9 @@ public class kalkulator extends javax.swing.JFrame {
         String data = JOptionPane.showInputDialog("Wprowadź datę w formacie dd mm yyyy np. 26.11.2003");
         LocalDate ldnow = LocalDate.now();
         LocalDate ldinput = LocalDate.parse(data,formatter);
-        System.out.println(ldnow+" "+ldinput);
+        // System.out.println(ldnow+" "+ldinput);
+        long days = ChronoUnit.DAYS.between(ldinput,ldnow);
+        System.out.println("Między tymi datami jest odstęp "+days+" dni");
     }//GEN-LAST:event_ko_jMenuItemIleDniActionPerformed
 
     /**
