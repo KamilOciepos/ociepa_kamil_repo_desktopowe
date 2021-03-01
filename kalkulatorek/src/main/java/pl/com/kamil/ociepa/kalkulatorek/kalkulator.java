@@ -5,6 +5,7 @@
  */
 package pl.com.kamil.ociepa.kalkulatorek;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 
@@ -511,7 +512,10 @@ public class kalkulator extends javax.swing.JFrame {
 
     private void ko_jMenuItemIleDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jMenuItemIleDniActionPerformed
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
-        JOptionPane.showInputDialog("Wprowadź datę w formacie dd mm yyyy np. 26.11.2003");
+        String data = JOptionPane.showInputDialog("Wprowadź datę w formacie dd mm yyyy np. 26.11.2003");
+        LocalDate ldnow = LocalDate.now();
+        LocalDate ldinput = LocalDate.parse(data,formatter);
+        System.out.println(ldnow+" "+ldinput);
     }//GEN-LAST:event_ko_jMenuItemIleDniActionPerformed
 
     /**
