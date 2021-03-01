@@ -5,6 +5,7 @@
  */
 package pl.com.kamil.ociepa.kalkulatorek;
 
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 
 /**
@@ -56,7 +57,7 @@ public class kalkulator extends javax.swing.JFrame {
         ko_jMenuItemZamknij = new javax.swing.JMenuItem();
         ko_jMenuItemOProgramie = new javax.swing.JMenuItem();
         ko_jMenuTools = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        ko_jMenuItemIleDni = new javax.swing.JMenuItem();
 
         jMenu2.setText("jMenu2");
 
@@ -341,13 +342,13 @@ public class kalkulator extends javax.swing.JFrame {
 
         ko_jMenuTools.setText("Narzędzia");
 
-        jMenuItem2.setText("jMenuItem2");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        ko_jMenuItemIleDni.setText("Ile dni");
+        ko_jMenuItemIleDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                ko_jMenuItemIleDniActionPerformed(evt);
             }
         });
-        ko_jMenuTools.add(jMenuItem2);
+        ko_jMenuTools.add(ko_jMenuItemIleDni);
 
         jMenuBar1.add(ko_jMenuTools);
 
@@ -508,9 +509,10 @@ public class kalkulator extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(null, "Kalkulator (jednodziałaniowy). IN DEVELOPMENT");
     }//GEN-LAST:event_ko_jMenuItemOProgramieActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void ko_jMenuItemIleDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jMenuItemIleDniActionPerformed
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
+        JOptionPane.showInputDialog("Wprowadź datę w formacie dd mm yyyy np. 26.11.2003");
+    }//GEN-LAST:event_ko_jMenuItemIleDniActionPerformed
 
     /**
      * @param args the command line arguments
@@ -551,7 +553,6 @@ public class kalkulator extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JButton ko_jButton0;
     private javax.swing.JButton ko_jButton1;
     private javax.swing.JButton ko_jButton2;
@@ -570,6 +571,7 @@ public class kalkulator extends javax.swing.JFrame {
     private javax.swing.JButton ko_jButtonPotega;
     private javax.swing.JButton ko_jButtonUsun;
     private javax.swing.JButton ko_jButtonWynik;
+    private javax.swing.JMenuItem ko_jMenuItemIleDni;
     private javax.swing.JMenuItem ko_jMenuItemOProgramie;
     private javax.swing.JMenuItem ko_jMenuItemZamknij;
     private javax.swing.JMenu ko_jMenuPlik;
