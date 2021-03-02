@@ -513,12 +513,16 @@ public class kalkulator extends javax.swing.JFrame {
 
     private void ko_jMenuItemIleDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jMenuItemIleDniActionPerformed
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
-        String data = JOptionPane.showInputDialog("Wprowadź datę w formacie dd mm yyyy np. 26.11.2003");
-        LocalDate ldnow = LocalDate.now();
-        LocalDate ldinput = LocalDate.parse(data,formatter);
-        // System.out.println(ldnow+" "+ldinput);
-        long days = ChronoUnit.DAYS.between(ldinput,ldnow);
-        System.out.println("Między tymi datami jest odstęp "+days+" dni");
+        String data = JOptionPane.showInputDialog("Wprowadź datę w formacie dd mm yyyy np. 26 11 2003");
+        if(data != null && data.length()==10){
+            LocalDate ldnow = LocalDate.now();
+            LocalDate ldinput = LocalDate.parse(data,formatter);
+            // System.out.println(ldnow+" "+ldinput);
+            long days = ChronoUnit.DAYS.between(ldinput,ldnow);
+            JOptionPane.showMessageDialog(rootPane,""+days,"Ilość dni",HEIGHT);
+        }else{
+            JOptionPane.showMessageDialog(rootPane,"NIE WPROWADZONO DATY","BŁĄD",HEIGHT);   
+        }
     }//GEN-LAST:event_ko_jMenuItemIleDniActionPerformed
 
     /**
