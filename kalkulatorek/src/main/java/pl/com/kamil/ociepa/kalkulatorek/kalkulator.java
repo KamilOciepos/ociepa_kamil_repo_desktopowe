@@ -7,6 +7,7 @@ package pl.com.kamil.ociepa.kalkulatorek;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import javax.swing.JOptionPane;
 
@@ -513,15 +514,25 @@ public class kalkulator extends javax.swing.JFrame {
 
     private void ko_jMenuItemIleDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jMenuItemIleDniActionPerformed
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
-        String data = JOptionPane.showInputDialog("Wprowadź datę w formacie dd mm yyyy np. 26 11 2003");
-        if(data != null && data.length()==10){
-            LocalDate ldnow = LocalDate.now();
-            LocalDate ldinput = LocalDate.parse(data,formatter);
-            // System.out.println(ldnow+" "+ldinput);
-            long days = ChronoUnit.DAYS.between(ldinput,ldnow);
-            JOptionPane.showMessageDialog(rootPane,""+days,"Ilość dni",HEIGHT);
-        }else{
-            JOptionPane.showMessageDialog(rootPane,"NIE WPROWADZONO DATY","BŁĄD",HEIGHT);   
+        String info = "\n";
+        while(!info.equals("ok")){
+            String data = JOptionPane.showInputDialog("Wprowadź datę w formacie dd mm yyyy np. 26 11 2003"+ " "+ info);
+
+            if(data != null && data.length()==10){
+                LocalDate ldnow = LocalDate.now();
+                try{
+                    LocalDate ldinput = LocalDate.parse(data,formatter);
+                    // System.out.println(ldnow+" "+ldinput);
+                    long days = ChronoUnit.DAYS.between(ldinput,ldnow);
+                    JOptionPane.showMessageDialog(rootPane,""+days,"Ilość dni",HEIGHT);
+                    info = "ok";
+                }catch(DateTimeParseException ex){
+                    info = "Wprowadzono zły format daty!!";
+                }
+            }else{
+                info = "ok";       
+                
+            }
         }
     }//GEN-LAST:event_ko_jMenuItemIleDniActionPerformed
 
