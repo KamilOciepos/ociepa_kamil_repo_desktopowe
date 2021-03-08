@@ -250,7 +250,10 @@ public class Zakupy extends javax.swing.JFrame {
         ko_jTextFieldWpisywanie.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-               
+                
+                if(e.getKeyChar()==KeyEvent.VK_ENTER){
+                    System.out.println("Wprowadzono dane po nacisnieciu ENTERA");
+                }
             }
 
             @Override
@@ -270,17 +273,23 @@ public class Zakupy extends javax.swing.JFrame {
         ko_jTextFieldWartosc.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                
+               char ch = e.getKeyChar();
+                if(ch == '0'|| ch == '1'|| ch == '2'||ch == '3'||ch == '4'||ch == '5'||ch == '6'||ch == '7'||ch == '8'||ch == '9'){
+                    System.out.println("NACISNIETO CYFRE");
+                }
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
-                
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
             @Override
             public void keyReleased(KeyEvent e) {
-               
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         });
+               
     }
    
     /**
