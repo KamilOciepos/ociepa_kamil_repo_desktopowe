@@ -5,6 +5,9 @@
  */
 package pl.com.kamil.ociepa.projektzakupy;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 /**
  *
  * @author a20ko
@@ -16,6 +19,7 @@ public class Zakupy extends javax.swing.JFrame {
      */
     public Zakupy() {
         initComponents();
+        addKeyListenerToko_jTextFieldWpisywanie();
     }
 
     /**
@@ -40,7 +44,7 @@ public class Zakupy extends javax.swing.JFrame {
         ko_jComboBoxTyp = new javax.swing.JComboBox<>();
         ko_jTextFieldData = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        ko_jTextAreaLista = new javax.swing.JTextArea();
         ko_jLabelWydatkiDzisiaj = new javax.swing.JLabel();
         ko_jLabelDzisiejszeZakupy = new javax.swing.JLabel();
         ko_jLabelWydatkiTydzien = new javax.swing.JLabel();
@@ -82,9 +86,9 @@ public class Zakupy extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        ko_jTextAreaLista.setColumns(20);
+        ko_jTextAreaLista.setRows(5);
+        jScrollPane1.setViewportView(ko_jTextAreaLista);
 
         ko_jLabelWydatkiDzisiaj.setText("Wydatki z dzisiaj");
 
@@ -149,11 +153,12 @@ public class Zakupy extends javax.swing.JFrame {
             ko_jPanelWprowadzLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ko_jPanelWprowadzLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(ko_jPanelWprowadzLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ko_jLabelWpisywanie)
-                    .addComponent(ko_jLabelWartosc)
-                    .addComponent(ko_jLabelDataZakupu)
-                    .addComponent(ko_jLabelTypTowaru, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(ko_jPanelWprowadzLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ko_jLabelTypTowaru, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ko_jPanelWprowadzLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ko_jLabelWpisywanie)
+                        .addComponent(ko_jLabelWartosc)
+                        .addComponent(ko_jLabelDataZakupu)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ko_jPanelWprowadzLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ko_jPanelWprowadzLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -241,7 +246,43 @@ public class Zakupy extends javax.swing.JFrame {
     private void ko_jButtonZapiszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonZapiszActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ko_jButtonZapiszActionPerformed
+    private void addKeyListenerToko_jTextFieldWpisywanie(){
+        ko_jTextFieldWpisywanie.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+               
+            }
 
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+            }
+        });
+        
+        
+    }
+    private void addKeyListenerToko_jTextFieldWartosc(){
+        ko_jTextFieldWartosc.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            @Override
+            public void keyReleased(KeyEvent e) {
+               
+            }
+        });
+    }
+   
     /**
      * @param args the command line arguments
      */
@@ -276,13 +317,12 @@ public class Zakupy extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton ko_jButtonZapisz;
     private javax.swing.JComboBox<String> ko_jComboBoxTyp;
@@ -296,6 +336,7 @@ public class Zakupy extends javax.swing.JFrame {
     private javax.swing.JPanel ko_jPanelLista;
     private javax.swing.JPanel ko_jPanelWprowadz;
     private javax.swing.JTabbedPane ko_jTabbedPane;
+    private javax.swing.JTextArea ko_jTextAreaLista;
     private javax.swing.JTextField ko_jTextFieldData;
     private javax.swing.JTextField ko_jTextFieldWartosc;
     private javax.swing.JTextField ko_jTextFieldWpisywanie;
@@ -304,4 +345,10 @@ public class Zakupy extends javax.swing.JFrame {
     private javax.swing.JToolBar ko_jToolBarLista;
     private javax.swing.JToolBar ko_jToolBarWprowadz;
     // End of variables declaration//GEN-END:variables
+
+    
+
+   
+
+    
 }
