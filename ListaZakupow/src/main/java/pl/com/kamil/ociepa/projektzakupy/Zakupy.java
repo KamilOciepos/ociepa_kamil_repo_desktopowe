@@ -19,6 +19,7 @@ public class Zakupy extends javax.swing.JFrame {
      */
     public Zakupy() {
         initComponents();
+        addKeyListenerToko_jTextFieldWartosc();
         addKeyListenerToko_jTextFieldWpisywanie();
     }
 
@@ -240,19 +241,37 @@ public class Zakupy extends javax.swing.JFrame {
     }//GEN-LAST:event_ko_jTextFieldWpisywanieActionPerformed
 
     private void ko_jTextFieldDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jTextFieldDataActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_ko_jTextFieldDataActionPerformed
 
     private void ko_jButtonZapiszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonZapiszActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ko_jButtonZapiszActionPerformed
+    private void addkeyListenerToko_jTextFieldData(){
+        ko_jTextFieldData.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+    }
     private void addKeyListenerToko_jTextFieldWpisywanie(){
         ko_jTextFieldWpisywanie.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
                 
                 if(e.getKeyChar()==KeyEvent.VK_ENTER){
-                    System.out.println("Wprowadzono dane po nacisnieciu ENTERA");
+                   //System.out.println("Wprowadzono dane po nacisnieciu ENTERA");
                 }
             }
 
@@ -274,8 +293,11 @@ public class Zakupy extends javax.swing.JFrame {
             @Override
             public void keyTyped(KeyEvent e) {
                char ch = e.getKeyChar();
-                if(ch == '0'|| ch == '1'|| ch == '2'||ch == '3'||ch == '4'||ch == '5'||ch == '6'||ch == '7'||ch == '8'||ch == '9'){
-                    System.out.println("NACISNIETO CYFRE");
+                if(ch >= '0' && ch <= '9' || ch == KeyEvent.VK_BACK_SPACE){
+                    ko_jTextFieldWartosc.setEditable(true);
+                    //System.out.println("NACISNIETO CYFRE");
+                }else{
+                    ko_jTextFieldWartosc.setEditable(false);
                 }
             }
 
