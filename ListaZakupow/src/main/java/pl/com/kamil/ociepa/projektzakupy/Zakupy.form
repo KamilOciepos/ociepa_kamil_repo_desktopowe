@@ -120,7 +120,7 @@
                                       <Component id="ko_jLabelDataZakupu" alignment="0" max="32767" attributes="0"/>
                                       <Component id="ko_jTextFieldData" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="25" max="32767" attributes="0"/>
+                                  <EmptySpace pref="23" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -226,11 +226,14 @@
                 <Component class="javax.swing.JComboBox" name="ko_jComboBoxTyp">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
+                      <StringArray count="7">
+                        <StringItem index="0" value="Ubrania"/>
+                        <StringItem index="1" value="Artyku&#x142;y spo&#x17c;ywcze"/>
+                        <StringItem index="2" value="RTV/AGD"/>
+                        <StringItem index="3" value="Zabawki"/>
+                        <StringItem index="4" value="Kosmetyki"/>
+                        <StringItem index="5" value="Detergenty"/>
+                        <StringItem index="6" value=" "/>
                       </StringArray>
                     </Property>
                   </Properties>

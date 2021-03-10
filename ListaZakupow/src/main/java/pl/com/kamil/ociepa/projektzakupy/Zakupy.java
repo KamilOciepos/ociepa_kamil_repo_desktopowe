@@ -7,6 +7,9 @@ package pl.com.kamil.ociepa.projektzakupy;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -21,6 +24,7 @@ public class Zakupy extends javax.swing.JFrame {
         initComponents();
         addKeyListenerToko_jTextFieldWartosc();
         addKeyListenerToko_jTextFieldWpisywanie();
+        addkeyListenerToko_jTextFieldData();
     }
 
     /**
@@ -79,7 +83,7 @@ public class Zakupy extends javax.swing.JFrame {
             }
         });
 
-        ko_jComboBoxTyp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ko_jComboBoxTyp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ubrania", "Artykuły spożywcze", "RTV/AGD", "Zabawki", "Kosmetyki", "Detergenty", " " }));
 
         ko_jTextFieldData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +139,7 @@ public class Zakupy extends javax.swing.JFrame {
                             .addComponent(ko_jButtonZapisz, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ko_jLabelDataZakupu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ko_jTextFieldData))
-                        .addContainerGap(25, Short.MAX_VALUE))
+                        .addContainerGap(23, Short.MAX_VALUE))
                     .addGroup(ko_jPanelWprowadzLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(ko_jPanelWprowadzLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,13 +249,38 @@ public class Zakupy extends javax.swing.JFrame {
     }//GEN-LAST:event_ko_jTextFieldDataActionPerformed
 
     private void ko_jButtonZapiszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonZapiszActionPerformed
-        // TODO add your handling code here:
+        String aktualny = "";
+        
+        String produkt = ko_jTextFieldWpisywanie.getText();
+        String wartosc = ko_jTextFieldWartosc.getText();
+        String typ = (String) ko_jComboBoxTyp.getSelectedItem();
+        String data = ko_jTextFieldData.getText();
+        String temp = "";
+        ko_jTextAreaLista.setText(""+temp+"\n"+produkt+";"+wartosc+";"+typ+";"+data+";");
+        temp = ko_jTextAreaLista.getText();
+        File f = new File("lista.txt");
+        
+        try{
+            
+            FileWriter fw = new FileWriter(f);
+            fw.write(aktualny+"\n" + ko_jTextAreaLista.getText());
+            aktualny = ko_jTextAreaLista.getText();
+            fw.close();
+        }catch(IOException e){
+            System.out.println("BŁĄD: "+e.toString());
+        }
     }//GEN-LAST:event_ko_jButtonZapiszActionPerformed
     private void addkeyListenerToko_jTextFieldData(){
         ko_jTextFieldData.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                char ch = e.getKeyChar();
+                if(ch >= '0' && ch <= '9' || ch == KeyEvent.VK_BACK_SPACE || ch == KeyEvent.VK_SPACE){
+                    ko_jTextFieldWartosc.setEditable(true);
+                    //System.out.println("NACISNIETO CYFRE");
+                }else{
+                    ko_jTextFieldWartosc.setEditable(false);
+                }
             }
 
             @Override
