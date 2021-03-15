@@ -250,14 +250,14 @@ public class Zakupy extends javax.swing.JFrame {
 
     private void ko_jButtonZapiszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonZapiszActionPerformed
         String aktualny = "";
-        
         String produkt = ko_jTextFieldWpisywanie.getText();
         String wartosc = ko_jTextFieldWartosc.getText();
         String typ = (String) ko_jComboBoxTyp.getSelectedItem();
         String data = ko_jTextFieldData.getText();
-        String temp = "";
-        ko_jTextAreaLista.setText(""+temp+"\n"+produkt+";"+wartosc+";"+typ+";"+data+";");
-        temp = ko_jTextAreaLista.getText();
+        
+        
+        ko_jTextAreaLista.setText(""+produkt+";"+wartosc+";"+typ+";"+data+";");
+        String temp = ko_jTextAreaLista.getText();
         File f = new File("lista.txt");
         
         try{
@@ -274,10 +274,15 @@ public class Zakupy extends javax.swing.JFrame {
         ko_jTextFieldData.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
+                
+                String temp = ko_jTextFieldData.getText();
                 char ch = e.getKeyChar();
-                if(ch >= '0' && ch <= '9' || ch == KeyEvent.VK_BACK_SPACE || ch == KeyEvent.VK_SPACE){
+                if( (ch >= '0' && ch <= '9' || ch == KeyEvent.VK_BACK_SPACE ) && 
+                  (temp.length()<10 || ch == KeyEvent.VK_BACK_SPACE)){
                     ko_jTextFieldWartosc.setEditable(true);
-                    //System.out.println("NACISNIETO CYFRE");
+                    if(temp.length() == 4 || temp.length()== 7 && ch != KeyEvent.VK_BACK_SPACE){
+                        ko_jTextFieldData.setText(temp+"-");
+                    }
                 }else{
                     ko_jTextFieldWartosc.setEditable(false);
                 }
