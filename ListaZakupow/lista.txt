@@ -1,2 +1,2 @@
 
-spodnie;120;Ubrania;15.03.2021;
+;;Ubrania;;

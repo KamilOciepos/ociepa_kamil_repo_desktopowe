@@ -25,6 +25,7 @@ public class Zakupy extends javax.swing.JFrame {
         addKeyListenerToko_jTextFieldWartosc();
         addKeyListenerToko_jTextFieldWpisywanie();
         addkeyListenerToko_jTextFieldData();
+        addTooltipToElements();
     }
 
     /**
@@ -239,7 +240,38 @@ public class Zakupy extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private void addTooltipToElements(){
+        ko_jTextFieldWpisywanie.setToolTipText("<html>"
+                + "<h3>Wprowadz tekst </h3>"
+                + "<p>Nie używaj polskich znaków</p>"
+                + "</html>");
+        
+        ko_jTextFieldWartosc.setToolTipText("<html>"
+                + "<h3>Wprowadz wartość </h3>"
+                + "<p>Pamiętaj żeby nie wydać za dużo</p>"
+                + "</html>");
+        
+        ko_jTextFieldData.setToolTipText("<html>"
+                + "<h3>Wprowadz date </h3>"
+                + "<p>W formacie DD.MM.RRRR</p>"
+                + "</html>");
+        
+        ko_jTextAreaLista.setToolTipText("<html>"
+                + "<h3>Tutaj pokazana jest lista twoich zakupów </h3>"
+                + "<p>Dosyć długa</p>"
+                + "</html>");
+        
+        ko_jTextFieldWydatkiDzisiaj.setToolTipText("<html>"
+                + "<h3>Tutaj pokazane jest ile wydałeś dzisiaj</h3>"
+                + "<p>Coś nie idzie to oszczędzanie</p>"
+                + "</html>");
+        
+        ko_jTextFieldWydatkiTydzien.setToolTipText("<html>"
+                + "<h3>Tutaj pokazane jest ile wydałeś w tym tygodniu </h3>"
+                + "<p>Sporo kaski</p>"
+                + "</html>");
+    }
     private void ko_jTextFieldWpisywanieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jTextFieldWpisywanieActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ko_jTextFieldWpisywanieActionPerformed
@@ -327,17 +359,37 @@ public class Zakupy extends javax.swing.JFrame {
             @Override
             public void keyTyped(KeyEvent e) {
                char ch = e.getKeyChar();
-                if(ch >= '0' && ch <= '9' || ch == KeyEvent.VK_BACK_SPACE){
-                    ko_jTextFieldWartosc.setEditable(true);
-                    //System.out.println("NACISNIETO CYFRE");
+               
+               String temp = ko_jTextFieldWartosc.getText();
+               String [] splitted = temp.split(",");
+               if(splitted.length > 1){       
+                   System.out.println(splitted[0]+" po przecinku "+splitted[1]);
+               }
+               
+               if(temp.contains(",")){
+                    if(ch >= '0' && ch <= '9' || ch == KeyEvent.VK_BACK_SPACE){
+                        ko_jTextFieldWartosc.setEditable(true);
+                        //System.out.println("NACISNIETO CYFRE");
+                    }else{
+                        ko_jTextFieldWartosc.setEditable(false);
+                    }
                 }else{
-                    ko_jTextFieldWartosc.setEditable(false);
-                }
+                   if(ch >= '0' && ch <= '9' || ch == KeyEvent.VK_BACK_SPACE || ch == ','){
+                        ko_jTextFieldWartosc.setEditable(true);
+                        //System.out.println("NACISNIETO CYFRE");
+                   }else{
+                       ko_jTextFieldWartosc.setEditable(false);
+                    }
+            }
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                String temp = ko_jTextFieldWartosc.getText();
+               String [] splitted = temp.split(",");
+               if(splitted.length > 1){       
+                   System.out.println(splitted[0]+" po przecinku "+splitted[1]);
+               }
             }
 
             @Override
