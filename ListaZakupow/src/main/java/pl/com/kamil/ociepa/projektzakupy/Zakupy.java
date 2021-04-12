@@ -22,6 +22,8 @@ public class Zakupy extends javax.swing.JFrame {
      */
     public Zakupy() {
         initComponents();
+        FileUtils fu = new FileUtils();
+        ko_jTextAreaLista.setText(fu.readFromFile());
         addKeyListenerToko_jTextFieldWartosc();
         addKeyListenerToko_jTextFieldWpisywanie();
         addkeyListenerToko_jTextFieldData();
@@ -281,26 +283,9 @@ public class Zakupy extends javax.swing.JFrame {
     }//GEN-LAST:event_ko_jTextFieldDataActionPerformed
 
     private void ko_jButtonZapiszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonZapiszActionPerformed
-        String aktualny = "";
-        String produkt = ko_jTextFieldWpisywanie.getText();
-        String wartosc = ko_jTextFieldWartosc.getText();
-        String typ = (String) ko_jComboBoxTyp.getSelectedItem();
-        String data = ko_jTextFieldData.getText();
-        
-        
-        ko_jTextAreaLista.setText(""+produkt+";"+wartosc+";"+typ+";"+data+";");
-        String temp = ko_jTextAreaLista.getText();
-        File f = new File("lista.txt");
-        
-        try{
-            
-            FileWriter fw = new FileWriter(f);
-            fw.write(aktualny+"\n" + ko_jTextAreaLista.getText());
-            aktualny = ko_jTextAreaLista.getText();
-            fw.close();
-        }catch(IOException e){
-            System.out.println("BŁĄD: "+e.toString());
-        }
+        FileUtils stf = new FileUtils();
+        String text = ko_jTextFieldWpisywanie.getText().trim()+";"+ko_jTextFieldWartosc.getText().trim()+";"+ko_jComboBoxTyp.getSelectedItem().toString().trim()+";"+ko_jTextFieldData.getText().trim();
+        stf.saveToFile(text);
     }//GEN-LAST:event_ko_jButtonZapiszActionPerformed
     private void addkeyListenerToko_jTextFieldData(){
         ko_jTextFieldData.addKeyListener(new KeyListener() {
