@@ -5,6 +5,9 @@
  */
 package pl.com.kamil.ociepa.rejestracjalogowanie;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 /**
  *
  * @author a20ko
@@ -16,6 +19,8 @@ public class RejestracjaLogowanie extends javax.swing.JFrame {
      */
     public RejestracjaLogowanie() {
         initComponents();
+        addKeyListenerTojTextFieldEmailLogowanie();
+        addKeyListenerTojTextFieldEmail();
     }
 
     /**
@@ -213,7 +218,54 @@ public class RejestracjaLogowanie extends javax.swing.JFrame {
     private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldActionPerformed
+    private void addKeyListenerTojTextFieldEmailLogowanie(){
+        jTextFieldEmailLogowanie.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                String temp = jTextFieldEmailLogowanie.getText();
+                char ch = e.getKeyChar();
+                if((ch >= 'a' && ch <= 'z' || ch == KeyEvent.VK_BACK_SPACE) && 
+                        (temp.length() <10 || ch == KeyEvent.VK_BACK_SPACE)){
+                    jTextFieldEmailLogowanie.setEditable(true);
+                    
+                }
+            }
 
+            @Override
+            public void keyPressed(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+    }
+    private void addKeyListenerTojTextFieldEmail(){
+        jTextFieldEmail.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                String temp = jTextFieldEmail.getText();
+                char ch = e.getKeyChar();
+                if((ch >= 'a' && ch <= 'z' || ch == KeyEvent.VK_BACK_SPACE) && 
+                        (temp.length() <10 || ch == KeyEvent.VK_BACK_SPACE)){
+                    jTextFieldEmail.setEditable(true);
+                    
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
+    }
     /**
      * @param args the command line arguments
      */
