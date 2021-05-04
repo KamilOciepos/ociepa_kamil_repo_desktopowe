@@ -7,6 +7,10 @@ package pl.com.kamil.ociepa.rejestracjalogowanie;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,6 +26,9 @@ public class RejestracjaLogowanie extends javax.swing.JFrame {
         addKeyListenerTojTextFieldEmailLogowanie();
         addKeyListenerTojTextFieldEmail();
         addKeyListenerTojTextFieldUsername();
+        addkeyListenerTojPasswordFieldLogowanie();
+        addkeyListenerTojConfirmPasswordField();
+        addkeyListenerTojPasswordField();
     }
 
     /**
@@ -53,6 +60,7 @@ public class RejestracjaLogowanie extends javax.swing.JFrame {
         jLabelConfirmPassword = new javax.swing.JLabel();
         jConfirmPasswordField = new javax.swing.JPasswordField();
         jButtonRejestruj = new javax.swing.JButton();
+        jButtonClear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +81,11 @@ public class RejestracjaLogowanie extends javax.swing.JFrame {
 
         jButtonZaloguj.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonZaloguj.setText("Zaloguj");
+        jButtonZaloguj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonZalogujActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelLogowanieLayout = new javax.swing.GroupLayout(jPanelLogowanie);
         jPanelLogowanie.setLayout(jPanelLogowanieLayout);
@@ -142,6 +155,18 @@ public class RejestracjaLogowanie extends javax.swing.JFrame {
 
         jButtonRejestruj.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonRejestruj.setText("Zarejestruj");
+        jButtonRejestruj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRejestrujActionPerformed(evt);
+            }
+        });
+
+        jButtonClear.setText("Wyczyść");
+        jButtonClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelRejestracjaLayout = new javax.swing.GroupLayout(jPanelRejestracja);
         jPanelRejestracja.setLayout(jPanelRejestracjaLayout);
@@ -162,6 +187,10 @@ public class RejestracjaLogowanie extends javax.swing.JFrame {
                         .addComponent(jTextFieldUsername))
                     .addComponent(jButtonRejestruj, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(401, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRejestracjaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonClear, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
         );
         jPanelRejestracjaLayout.setVerticalGroup(
             jPanelRejestracjaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +215,9 @@ public class RejestracjaLogowanie extends javax.swing.JFrame {
                 .addComponent(jConfirmPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jButtonRejestruj)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonClear)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Rejestracja", jPanelRejestracja);
@@ -199,7 +230,7 @@ public class RejestracjaLogowanie extends javax.swing.JFrame {
         );
         jPanelMainLayout.setVerticalGroup(
             jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane)
+            .addComponent(jTabbedPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -219,13 +250,63 @@ public class RejestracjaLogowanie extends javax.swing.JFrame {
     private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldActionPerformed
+
+    private void jButtonRejestrujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRejestrujActionPerformed
+        
+        String haslo = jPasswordField.getText();
+        String potwierdzenie = jConfirmPasswordField.getText();
+        
+        if(potwierdzenie.equals(haslo)){
+            JOptionPane.showMessageDialog(null, "Rejestracja powiodła się");
+            String username = jTextFieldUsername.getText();
+            String email = jTextFieldEmail.getText();
+            String password = jPasswordField.getText();
+
+            String wynik = (""+username+";"+email+";"+password+"\n");
+            File f = new File("sekretnehasla.csv");
+
+            try{
+                FileWriter fw = new FileWriter(f,false);
+                fw.write(wynik+"\n");
+                fw.close();
+            }catch(IOException e){
+                System.out.println("BŁĄD: "+e.toString());
+            }
+        }else if(haslo.length() < 4){
+            JOptionPane.showMessageDialog(null, "Hasło ma mniej niż 4 znaki");
+        }else{
+            JOptionPane.showMessageDialog(null, "Hasła różnią się od siebie");
+            
+        }
+    }//GEN-LAST:event_jButtonRejestrujActionPerformed
+
+    private void jButtonZalogujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZalogujActionPerformed
+       
+        JOptionPane.showMessageDialog(null, "Niestety ta funkcja to nie działa");
+    }//GEN-LAST:event_jButtonZalogujActionPerformed
+
+    private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
+        jTextFieldUsername.setText("");
+        jTextFieldEmail.setText("");
+        jPasswordField.setText("");
+        jConfirmPasswordField.setText("");
+    }//GEN-LAST:event_jButtonClearActionPerformed
     private void addKeyListenerTojTextFieldEmailLogowanie(){
         jTextFieldEmailLogowanie.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
                 String temp = jTextFieldEmailLogowanie.getText();
                 char ch = e.getKeyChar();
-                
+                if(  (ch == '@' || ch >= 'a' && ch <= 'z') || ch == KeyEvent.VK_BACK_SPACE ){
+                    jTextFieldEmailLogowanie.setEditable(true);
+                }else{
+                    jTextFieldEmailLogowanie.setEditable(false);
+                }
+                if(temp.contains("@")){
+                   if(ch >= 'a' && ch <= 'z' || ch == '.' || ch == KeyEvent.VK_BACK_SPACE){
+                        jTextFieldEmailLogowanie.setEditable(true);
+                    }
+                }
             }
 
             @Override
@@ -239,22 +320,95 @@ public class RejestracjaLogowanie extends javax.swing.JFrame {
             }
         });
     }
+    private void addkeyListenerTojConfirmPasswordField(){
+        jConfirmPasswordField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char ch = e.getKeyChar();
+                
+                if(ch >= 'a' && ch <= 'z' || ch >= '0'  && ch <= '9'){
+                    jConfirmPasswordField.setEditable(true);
+                }else{
+                    jConfirmPasswordField.setEditable(false);
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+            }
+        });
+    }
+    private void addkeyListenerTojPasswordFieldLogowanie(){
+        jPasswordFieldLogowanie.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char ch = e.getKeyChar();
+                
+                if(ch >= 'a' && ch <= 'z' || ch >= '0'  && ch <= '9'){
+                    jPasswordFieldLogowanie.setEditable(true);
+                }else{
+                    jPasswordFieldLogowanie.setEditable(false);
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+            }
+        });
+    }
+    private void addkeyListenerTojPasswordField(){
+        jPasswordField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char ch = e.getKeyChar();
+                
+                if(ch >= 'a' && ch <= 'z' || ch >= '0'  && ch <= '9'){
+                    jPasswordField.setEditable(true);
+                }else{
+                    jPasswordField.setEditable(false);
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+            }
+        });
+    }
+    
     private void addKeyListenerTojTextFieldEmail(){
         jTextFieldEmail.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
                 
+                String temp = jTextFieldEmail.getText();
                 char ch = e.getKeyChar();
-                if(  (ch >= '0'  && ch <= '9'  || ch == KeyEvent.VK_BACK_SPACE) && ch >= '0'  && 
-                        (ch > 'a' && ch < 'z')){
-                    jTextFieldEmail.setEditable(true); 
-                    if( ch == '@'){
-                    if(ch > 'a' && ch < 'z'){
-                        jTextFieldEmail.setEditable(true);
-                    }
-                }
+                if(  (ch == '@' || ch >= 'a' && ch <= 'z') || ch == KeyEvent.VK_BACK_SPACE ){
+                    jTextFieldEmail.setEditable(true);
                 }else{
                     jTextFieldEmail.setEditable(false);
+                }
+                if(temp.contains("@")){
+                   if(ch >= 'a' && ch <= 'z' || ch == '.' || ch == KeyEvent.VK_BACK_SPACE){
+                        jTextFieldEmail.setEditable(true);
+                    }
                 }
                 
             }
@@ -276,7 +430,8 @@ public class RejestracjaLogowanie extends javax.swing.JFrame {
             public void keyTyped(KeyEvent e) {
                 String temp = jTextFieldUsername.getText();
                 char ch = e.getKeyChar();
-                if((ch >= 'a' && ch <= 'z') && (temp.length() <=20 ) && (ch == KeyEvent.VK_BACK_SPACE)) {
+                if((ch >= 'a' && ch <= 'z' || ch == KeyEvent.VK_BACK_SPACE ) 
+                   && (temp.length() <=19 || ch == KeyEvent.VK_BACK_SPACE  )) {
                     jTextFieldUsername.setEditable(true);
                 }else{
                     jTextFieldUsername.setEditable(false);
@@ -330,6 +485,7 @@ public class RejestracjaLogowanie extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonClear;
     private javax.swing.JButton jButtonRejestruj;
     private javax.swing.JButton jButtonZaloguj;
     private javax.swing.JPasswordField jConfirmPasswordField;
