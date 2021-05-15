@@ -18,6 +18,8 @@ import pl.com.kamil.ociepa.kolkokrzyzyk.gameutils.DrawPlayer;
 public class GameWindow extends javax.swing.JFrame {
     private boolean player = false;
     private Player p1,p2;
+    private JButton [][] buttonTable;
+    private LogicGame logicGame;
     /**
      * Creates new form Okienko
      */
@@ -49,79 +51,71 @@ public class GameWindow extends javax.swing.JFrame {
             p1 = new Player("O",jTFPlayer1.getText());
             p2 = new Player("X",JTFPlayer2.getText());
         }
-        
+        logicGame = new LogicGame();
+        System.out.println(logicGame);
             
     }
-    
-    private void setCircleOrCrossToAllButtons(){
-        jB11.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                setCircleOrCross(evt);
-            }
-        });
-        jB12.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                setCircleOrCross(evt);
-            }
-        });
-        jB13.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                setCircleOrCross(evt);
-            }
-        });
-        jB21.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                setCircleOrCross(evt);
-            }
-        });
-        jB22.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                setCircleOrCross(evt);
-            }
-        });
-        jB23.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                setCircleOrCross(evt);
-            }
-        });
-        jB31.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                setCircleOrCross(evt);
-            }
-        });
-        jB32.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                setCircleOrCross(evt);
-            }
-        });
-        jB33.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                setCircleOrCross(evt);
-            }
-        });
+    private void initButtons(){
+        buttonTable = new JButton[3][3];
+        buttonTable[0][0] = jB11;
+        buttonTable[1][0] = jB12;
+        buttonTable[2][0] = jB13;
         
+        buttonTable[0][1] = jB21;
+        buttonTable[1][1] = jB22;
+        buttonTable[2][1] = jB23;
+        
+        
+        buttonTable[0][2] = jB31;
+        buttonTable[1][2] = jB32;
+        buttonTable[2][2] = jB33;
+    }
+    private void setCircleOrCrossToAllButtons(){
+        for (int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                final int x = i;
+                final int y = j;
+                buttonTable[i][j].addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        setCircleOrCross(x, y);
+                    }
+                });
+            }
+        }
     }
     private void clearButtonText(){
-        jB11.setText("");
-        jB12.setText("");
-        jB13.setText("");
-        jB21.setText("");
-        jB22.setText("");
-        jB23.setText("");
-        jB31.setText("");
-        jB32.setText("");
-        jB33.setText("");
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                    buttonTable[i][j].setEnabled(true);
+                    buttonTable[i][j].setText("");
+                }
+        }
     }
         
-    private void setCircleOrCross(ActionEvent evt){
-        JButton b = (JButton) evt.getSource();
+    private void setCircleOrCross(int x,int y){
+         //JButton b = (JButton) evt.getSource();
         if(player){
-            b.setText(p1.getSign());
-        }else{
-            b.setText(p2.getSign());
+            buttonTable[x][y].setText(p1.getSign());
+            if(p1.getSign().equals("O"))
+                logicGame.addPlayerMoveBoard(x, y, 1);
+            else
+                logicGame.addPlayerMoveBoard(x, y, 2);
+            jLPlayer1.setBackground(Color.GRAY);
+            jLPlayer2.setBackground(Color.GREEN);
+        } else {
+            buttonTable[x][y].setText(p2.getSign());
+            if(p2.getSign().equals("O"))
+                logicGame.addPlayerMoveBoard(x, y, 1);
+            else
+                logicGame.addPlayerMoveBoard(x, y, 2);
+            jLPlayer1.setBackground(Color.GREEN);
+            jLPlayer2.setBackground(Color.GRAY);
         }
-        System.out.println(b.toString());
-        player = !player;
+        buttonTable[x][y].setEnabled(false);
+        System.out.println(logicGame+"\n");
+        //TODO sprawdzamy czy ktoś wygrał
+
+        player = !player; //Zmiana TRUE na FALS lub FLAS na TRUE
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -280,10 +274,11 @@ public class GameWindow extends javax.swing.JFrame {
                     .addComponent(jB13, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jB12, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jB21, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jB22, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jB23, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jB23, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jB21, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jB22, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jB31, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -317,6 +312,7 @@ public class GameWindow extends javax.swing.JFrame {
     private void jBRestetGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRestetGameActionPerformed
         initGame();
         clearButtonText();
+        logicGame = new LogicGame();
     }//GEN-LAST:event_jBRestetGameActionPerformed
 
     

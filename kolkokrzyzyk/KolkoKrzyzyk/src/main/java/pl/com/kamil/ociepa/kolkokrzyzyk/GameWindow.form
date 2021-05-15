@@ -138,10 +138,12 @@
                       <Component id="jB12" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jB21" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="jB22" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jB23" alignment="0" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jB21" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                          <Component id="jB22" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
