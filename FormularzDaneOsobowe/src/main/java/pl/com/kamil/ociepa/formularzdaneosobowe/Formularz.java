@@ -88,7 +88,7 @@ public class Formularz extends javax.swing.JFrame {
                     jTextFieldEmail.setEditable(false);
                 }
                 if(temp.contains("@")){
-                   if(ch >= 'A' && ch <= 'Z' || ch == '.'){
+                   if(ch >= 'a' && ch <= 'z' || ch == '.'){
                         jTextFieldEmail.setEditable(true);
                     }
                    else{
