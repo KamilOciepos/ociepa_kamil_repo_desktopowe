@@ -4,6 +4,12 @@
  */
 package pl.com.kamil.ociepa.projektpopupmenu;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author kapec
@@ -15,8 +21,9 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        dataList = new ArrayList<>();
     }
-
+  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,16 +34,23 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jLTask = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
+
+        jMenu1.setText("jMenu1");
+        jPopupMenu1.add(jMenu1);
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(jLTask);
 
         jButton1.setText("Dodaj zadanie");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -123,10 +137,38 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-
+    private void PopUpMenu(){
+        jLTask.addMouseListener(new MouseAdapter(){
+            public void mousePressed(MouseEvent e) {check(e);}
+            public void mouseReleased(MouseEvent e) {check(e);}
+            
+            public void check(MouseEvent e){
+                if(e.isPopupTrigger()){
+                    jLTask.setSelectedIndex(jLTask.locationToIndex(e.getPoint()));
+                    JOptionPane.showMessageDialog(null,
+                        "Selected index"+jLTask.getSelectedIndex()
+                        +" value: "+jLTask.getSelectedValue()); 
+                            
+                    jPopupMenu1.show(jLTask, e.getX(), e.getY());
+                }
+            }
+        });
+    }
+    private void initPopupMenuForJlist(){
+        jMenuItem1.setText("Edycja");
+        jMenuItem1.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Wybrano edycje");
+            }
+            
+        });
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jLTask;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
