@@ -4,24 +4,32 @@
  */
 package pl.com.kamil.ociepa.projektpopupmenu;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JOptionPane;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 
 /**
  *
  * @author kapec
  */
 public class Main extends javax.swing.JFrame {
-
+    private ArrayList<Data> dataList;
+    private DefaultListModel dlm;
+    private int dialogMode; // 0 - add, 1 - modify
+    
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
         dataList = new ArrayList<>();
+        dlm = new DefaultListModel();
+        
+        
+        this.setLocationRelativeTo(null);
+        dialog.setLocationRelativeTo(null);
+        detailsDialog.setLocationRelativeTo(null);
+        warning.setLocationRelativeTo(null);
     }
   
     /**
@@ -136,6 +144,24 @@ public class Main extends javax.swing.JFrame {
                 new Main().setVisible(true);
             }
         });
+    }
+     public void add(Data data) {
+        int id = dataList.size();
+        dataList.add(id, data);
+        dlm.add(id, dataList.get(id).getObjectName());
+        list.setModel(dlm);
+    }
+    
+    public void remove() {
+        SBMLabel.setText(dataList.get(list.getSelectedIndex()).getObjectName());
+        warning.setVisible(true);
+    }
+    
+    public void modify(Data student) {
+        int id = list.getSelectedIndex();
+        dataList.set(id, student);
+        dlm.set(id, dataList.get(id).getObjectName());
+        list.setModel(dlm);
     }
     private void PopUpMenu(){
         jLTask.addMouseListener(new MouseAdapter(){
