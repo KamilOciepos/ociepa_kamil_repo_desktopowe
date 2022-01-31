@@ -45,8 +45,12 @@ public class JFrameMain extends javax.swing.JFrame {
         ko_jButton0 = new javax.swing.JButton();
         ko_jButtonWynik = new javax.swing.JButton();
         ko_jButtonMnozenie = new javax.swing.JButton();
+        ko_jButtonPierwiastek = new javax.swing.JButton();
+        ko_jButtonPotega = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Kalkulator");
+        setResizable(false);
 
         ko_jTextFieldDzialania.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         ko_jTextFieldDzialania.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -68,7 +72,7 @@ public class JFrameMain extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel2.setLayout(new java.awt.GridLayout(4, 4));
+        jPanel2.setLayout(new java.awt.GridLayout(5, 4, 2, 2));
 
         ko_jButton1.setText("1");
         ko_jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -198,6 +202,22 @@ public class JFrameMain extends javax.swing.JFrame {
         });
         jPanel2.add(ko_jButtonMnozenie);
 
+        ko_jButtonPierwiastek.setText("sqrt");
+        ko_jButtonPierwiastek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ko_jButtonPierwiastekActionPerformed(evt);
+            }
+        });
+        jPanel2.add(ko_jButtonPierwiastek);
+
+        ko_jButtonPotega.setText("potega");
+        ko_jButtonPotega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ko_jButtonPotegaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(ko_jButtonPotega);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -217,72 +237,137 @@ public class JFrameMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     String temp = "";
-    private void ko_jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton2ActionPerformed
-        
-    }//GEN-LAST:event_ko_jButton2ActionPerformed
-
-    private void ko_jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton1ActionPerformed
-        
-    }//GEN-LAST:event_ko_jButton1ActionPerformed
-
-    private void ko_jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton3ActionPerformed
-        
-    }//GEN-LAST:event_ko_jButton3ActionPerformed
-
-    private void ko_jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton4ActionPerformed
-        
-    }//GEN-LAST:event_ko_jButton4ActionPerformed
-
-    private void ko_jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton5ActionPerformed
-        
-    }//GEN-LAST:event_ko_jButton5ActionPerformed
-
-    private void ko_jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton6ActionPerformed
-        
-    }//GEN-LAST:event_ko_jButton6ActionPerformed
-
-    private void ko_jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton7ActionPerformed
-        
-    }//GEN-LAST:event_ko_jButton7ActionPerformed
-
-    private void ko_jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton8ActionPerformed
-        
-    }//GEN-LAST:event_ko_jButton8ActionPerformed
-
-    private void ko_jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton9ActionPerformed
-        
-    }//GEN-LAST:event_ko_jButton9ActionPerformed
-
-    private void ko_jButton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton0ActionPerformed
-        
-    }//GEN-LAST:event_ko_jButton0ActionPerformed
-
-    private void ko_jButtonPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonPlusActionPerformed
-        
-    }//GEN-LAST:event_ko_jButtonPlusActionPerformed
-
-    private void ko_jButtonMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonMinusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ko_jButtonMinusActionPerformed
-
-    private void ko_jButtonDzielenieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonDzielenieActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ko_jButtonDzielenieActionPerformed
-
-    private void ko_jButtonMnozenieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonMnozenieActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ko_jButtonMnozenieActionPerformed
-
-    private void ko_jButtonWynikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonWynikActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ko_jButtonWynikActionPerformed
-
-    private void ko_jButtonUsunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonUsunActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ko_jButtonUsunActionPerformed
     int liczba1;
     int liczba2;
     String znak = "";
+    private void ko_jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton2ActionPerformed
+        ko_jTextFieldDzialania.setText(temp+"2");
+        temp= ko_jTextFieldDzialania.getText();
+    }//GEN-LAST:event_ko_jButton2ActionPerformed
+
+    private void ko_jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton1ActionPerformed
+        ko_jTextFieldDzialania.setText(temp+"1");
+        temp= ko_jTextFieldDzialania.getText();
+    }//GEN-LAST:event_ko_jButton1ActionPerformed
+
+    private void ko_jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton3ActionPerformed
+        ko_jTextFieldDzialania.setText(temp+"3");
+        temp= ko_jTextFieldDzialania.getText();
+    }//GEN-LAST:event_ko_jButton3ActionPerformed
+
+    private void ko_jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton4ActionPerformed
+        ko_jTextFieldDzialania.setText(temp+"4");
+        temp= ko_jTextFieldDzialania.getText();
+    }//GEN-LAST:event_ko_jButton4ActionPerformed
+
+    private void ko_jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton5ActionPerformed
+        ko_jTextFieldDzialania.setText(temp+"5");
+        temp= ko_jTextFieldDzialania.getText();
+    }//GEN-LAST:event_ko_jButton5ActionPerformed
+
+    private void ko_jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton6ActionPerformed
+        ko_jTextFieldDzialania.setText(temp+"6");
+        temp= ko_jTextFieldDzialania.getText();
+    }//GEN-LAST:event_ko_jButton6ActionPerformed
+
+    private void ko_jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton7ActionPerformed
+        ko_jTextFieldDzialania.setText(temp+"7");
+        temp= ko_jTextFieldDzialania.getText();
+    }//GEN-LAST:event_ko_jButton7ActionPerformed
+
+    private void ko_jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton8ActionPerformed
+        ko_jTextFieldDzialania.setText(temp+"8");
+        temp= ko_jTextFieldDzialania.getText();
+    }//GEN-LAST:event_ko_jButton8ActionPerformed
+
+    private void ko_jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton9ActionPerformed
+        ko_jTextFieldDzialania.setText(temp+"9");
+        temp= ko_jTextFieldDzialania.getText();
+    }//GEN-LAST:event_ko_jButton9ActionPerformed
+
+    private void ko_jButton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButton0ActionPerformed
+        ko_jTextFieldDzialania.setText(temp+"0");
+        temp = ko_jTextFieldDzialania.getText();
+    }//GEN-LAST:event_ko_jButton0ActionPerformed
+
+    private void ko_jButtonPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonPlusActionPerformed
+        znak = "+";
+        liczba1 = Integer.parseInt(temp);
+        temp ="";
+    }//GEN-LAST:event_ko_jButtonPlusActionPerformed
+
+    private void ko_jButtonMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonMinusActionPerformed
+        znak = "-";
+        liczba1 = Integer.parseInt(temp);
+        temp ="";
+    }//GEN-LAST:event_ko_jButtonMinusActionPerformed
+
+    private void ko_jButtonDzielenieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonDzielenieActionPerformed
+        znak ="/";
+        liczba1 = Integer.parseInt(temp);
+        temp ="";
+    }//GEN-LAST:event_ko_jButtonDzielenieActionPerformed
+
+    private void ko_jButtonMnozenieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonMnozenieActionPerformed
+        znak ="*";
+        liczba1 = Integer.parseInt(temp);
+        temp ="";
+    }//GEN-LAST:event_ko_jButtonMnozenieActionPerformed
+
+    private void ko_jButtonWynikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonWynikActionPerformed
+        liczba2 = Integer.parseInt(temp);
+        if(znak.equals("+")){
+            int wynik = liczba1 + liczba2;
+            String tekst = String.valueOf(wynik);
+            ko_jTextFieldDzialania.setText(liczba1+ " + " + liczba2+" = " + tekst);
+            temp = "";
+        }else if(znak.equals("-")){
+            int wynik = liczba1 - liczba2;
+            String tekst = String.valueOf(wynik);
+            ko_jTextFieldDzialania.setText(liczba1+ " - " + liczba2+" = " + tekst);
+            temp = "";
+        }else if(znak.equals("/")){
+            if(liczba2 == 0){
+                ko_jTextFieldDzialania.setText("Nie da sie dzielić przez 0");
+                temp = "";
+            }else{
+                int wynik = liczba1 / liczba2;
+                String tekst = String.valueOf(wynik);
+                ko_jTextFieldDzialania.setText(liczba1+ " / " + liczba2+" = " + tekst);
+                temp = "";
+            }
+        }else if(znak.equals("*")){
+            int wynik = liczba1 * liczba2;
+            String tekst = String.valueOf(wynik);
+            ko_jTextFieldDzialania.setText(liczba1+ " * " + liczba2+" = " + tekst);
+            temp = "";
+        }else if(znak.equals("potega")){
+            double wynik = Math.pow(liczba1,liczba2);
+            String tekst = String.valueOf(wynik);
+            ko_jTextFieldDzialania.setText(liczba1+ "^" + liczba2+" = " + tekst);
+            temp = "";
+        }
+    }//GEN-LAST:event_ko_jButtonWynikActionPerformed
+
+    private void ko_jButtonUsunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonUsunActionPerformed
+        ko_jTextFieldDzialania.setText("");
+        temp = "";
+    }//GEN-LAST:event_ko_jButtonUsunActionPerformed
+
+    private void ko_jButtonPotegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonPotegaActionPerformed
+        znak ="potega";
+        liczba1 = Integer.parseInt(temp);
+        temp ="";
+    }//GEN-LAST:event_ko_jButtonPotegaActionPerformed
+
+    private void ko_jButtonPierwiastekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ko_jButtonPierwiastekActionPerformed
+        liczba1 = Integer.parseInt(temp);
+        double wynik = Math.sqrt(liczba1);
+        String tekst = String.valueOf(wynik);
+        ko_jTextFieldDzialania.setText("Pierwiastek z "+liczba1 +" = " + tekst);
+        temp = "";
+    }//GEN-LAST:event_ko_jButtonPierwiastekActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -334,7 +419,9 @@ public class JFrameMain extends javax.swing.JFrame {
     private javax.swing.JButton ko_jButtonDzielenie;
     private javax.swing.JButton ko_jButtonMinus;
     private javax.swing.JButton ko_jButtonMnozenie;
+    private javax.swing.JButton ko_jButtonPierwiastek;
     private javax.swing.JButton ko_jButtonPlus;
+    private javax.swing.JButton ko_jButtonPotega;
     private javax.swing.JButton ko_jButtonUsun;
     private javax.swing.JButton ko_jButtonWynik;
     private javax.swing.JTextField ko_jTextFieldDzialania;
